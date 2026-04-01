@@ -1,0 +1,446 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--dark);
+  overflow: hidden;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, var(--dark), transparent);
+  z-index: 10;
+}
+
+.heroImage {
+  object-fit: cover;
+  opacity: 0.6;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 20;
+  max-width: 42rem;
+}
+
+.heroTitle {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .heroTitle {
+    font-size: 4.5rem;
+  }
+}
+
+.heroDescription {
+  font-size: 1.25rem;
+  color: var(--gray-300);
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+.heroButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .heroButtons {
+    flex-direction: row;
+  }
+}
+
+/* Generic Section Styles */
+.section {
+  padding: 6rem 0;
+}
+
+.sectionHeader {
+  text-align: center;
+  max-width: 48rem;
+  margin: 0 auto 4rem;
+}
+
+.sectionSubtitle {
+  color: var(--primary);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.sectionTitle {
+  font-size: 2.25rem;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .sectionTitle {
+    font-size: 3rem;
+  }
+}
+
+/* Services Section */
+.servicesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .servicesGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.serviceCard {
+  background-color: var(--gray-50);
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+  border: 1px solid var(--gray-100);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+:global(.dark) .serviceCard {
+  background-color: var(--gray-800);
+  border-color: var(--gray-700);
+}
+
+.serviceCard:hover {
+  border-color: rgba(249, 115, 22, 0.5);
+  transform: translateY(-0.5rem);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.serviceIcon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  width: 5rem;
+  height: 5rem;
+  background-color: var(--white);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+:global(.dark) .serviceIcon {
+  background-color: var(--gray-700);
+}
+
+.serviceCard:hover .serviceIcon {
+  transform: scale(1.1);
+}
+
+/* Projects Section */
+.projectsSection {
+  background-color: var(--dark);
+  color: var(--white);
+}
+
+.projectsHeader {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 4rem;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .projectsHeader {
+    flex-direction: row;
+  }
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .projectsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.projectCard {
+  position: relative;
+  height: 24rem;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.projectImage {
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.projectCard:hover .projectImage {
+  transform: scale(1.05);
+}
+
+.projectOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, var(--darker), transparent 70%);
+  opacity: 0.9;
+}
+
+.projectContent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 2.5rem;
+  transform: translateY(1rem);
+  transition: transform 0.3s ease;
+}
+
+.projectCard:hover .projectContent {
+  transform: translateY(0);
+}
+
+.projectCategory {
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.projectTitle {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+
+.projectDesc {
+  color: var(--gray-300);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  transition-delay: 0.1s;
+}
+
+.projectCard:hover .projectDesc {
+  opacity: 1;
+}
+
+/* About Section */
+.aboutGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .aboutGrid {
+    flex-direction: row;
+  }
+}
+
+.aboutImageWrapper {
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .aboutImageWrapper {
+    width: 50%;
+  }
+}
+
+.aboutImage {
+  position: relative;
+  height: 37.5rem;
+  width: 100%;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.aboutContent {
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .aboutContent {
+    width: 50%;
+  }
+}
+
+.aboutStats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  border-top: 1px solid var(--gray-200);
+  padding-top: 2.5rem;
+}
+
+:global(.dark) .aboutStats {
+  border-color: var(--gray-800);
+}
+
+.statNumber {
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.statLabel {
+  color: var(--gray-600);
+  font-weight: 500;
+}
+
+:global(.dark) .statLabel {
+  color: var(--gray-400);
+}
+
+/* CTA Section */
+.ctaSection {
+  position: relative;
+  z-index: 10;
+  margin-top: -5rem; /* Start overlapping the About section */
+  margin-bottom: -4rem; /* Continue overlapping into the footer */
+}
+
+.ctaContainer {
+  max-width: 1600px;
+  width: 96%;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.ctaCard {
+  position: relative;
+  overflow: hidden;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('/assets/contactcard.jpg');
+  background-size: cover;
+  background-position: center;
+  color: var(--white);
+  padding: 2rem 4rem;
+  border-radius: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  opacity: 0.95; /* Subtle opacity for the whole card as requested, but keep it high for text readability */
+}
+
+/* Removed ctaBgImage as we are using background-image on the parent */
+
+/* ctaOverlay removed as we use linear-gradient */
+
+.ctaContent {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .ctaContent {
+    flex-direction: row;
+    gap: 4rem;
+  }
+}
+
+.ctaTitle {
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 0;
+  max-width: 25rem; /* Constrain to help with 2-line requirement */
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .ctaTitle {
+    font-size: 2.5rem;
+    text-align: left;
+  }
+}
+
+.ctaForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 35rem;
+}
+
+@media (min-width: 640px) {
+  .ctaForm {
+    flex-direction: row;
+  }
+}
+
+.ctaInput {
+  flex-grow: 1;
+  padding: 1.25rem 1.5rem;
+  border-radius: 9999px;
+  border: 1px solid var(--gray-300);
+  background-color: var(--white);
+  color: var(--dark);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.ctaInput::placeholder {
+  color: var(--gray-400);
+}
+
+.ctaInput:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: var(--white);
+}
+
+.ctaButton {
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 1.25rem 2rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+}
